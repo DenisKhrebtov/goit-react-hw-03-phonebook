@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+
+import { nanoid } from 'nanoid';
+
 import PropTypes from 'prop-types';
+
 import {
   AddForm,
   AddLabel,
@@ -21,7 +25,11 @@ export default class ContactForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.onSubmit(this.state);
+    this.props.onSubmit({
+      id: nanoid(),
+      name: this.state.name,
+      number: this.state.number,
+    });
     this.reset();
   };
 
@@ -38,6 +46,7 @@ export default class ContactForm extends Component {
         <AddLabel>
           Name
           <InputName
+            id={nanoid()}
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -50,6 +59,7 @@ export default class ContactForm extends Component {
         <AddLabel>
           Number
           <InputNumber
+            id={nanoid()}
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"

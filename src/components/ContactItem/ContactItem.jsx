@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import { ContactNeme, DeleteButton, Item } from './ContactElem.styled';
+import { ContactNeme, DeleteButton, Item } from './ContactItem.styled';
 
-export const ContactElem = ({ id, name, number, onDeleteContact }) => {
+export const ContactItem = ({ id, name, number, onDeleteContact }) => {
   return (
     <Item key={id}>
       <ContactNeme>
@@ -14,7 +14,7 @@ export const ContactElem = ({ id, name, number, onDeleteContact }) => {
   );
 };
 
-ContactElem.propTypes = {
+ContactItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
