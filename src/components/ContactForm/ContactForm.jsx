@@ -25,11 +25,13 @@ export default class ContactForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.onSubmit({
+
+    const contact = {
       id: nanoid(),
       name: this.state.name,
       number: this.state.number,
-    });
+    };
+    this.props.onSubmit(contact);
     this.reset();
   };
 

@@ -21,15 +21,11 @@ export class App extends React.Component {
     }));
   };
 
-  addContacts = ({ name, number }) => {
-    const contact = {
-      name,
-      number,
-    };
-    this.state.contacts.find(contact => contact.name === name)
-      ? alert(`${name} is already in contacts`)
+  addContacts = newContact => {
+    this.state.contacts.find(contact => contact.name === newContact.name)
+      ? alert(`${newContact.name} is already in contacts`)
       : this.setState(({ contacts }) => ({
-          contacts: [contact, ...contacts],
+          contacts: [newContact, ...contacts],
         }));
   };
 
