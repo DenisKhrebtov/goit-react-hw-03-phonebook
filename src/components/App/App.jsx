@@ -7,8 +7,6 @@ import { ContactsState } from 'constance/contacts';
 
 import { Wrapper, Title } from './App.styled';
 
-// import { nanoid } from 'nanoid';
-
 export class App extends React.Component {
   state = {
     contacts: ContactsState,
